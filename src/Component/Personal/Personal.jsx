@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Personal.css";
-import SelectPlan from "../SelectPlan/SelectPlan"; // ✅ Import SelectPlan
+import SelectPlan from "../SelectPlan/SelectPlan"; 
 
 const Personal = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const Personal = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [showSelectPlan, setShowSelectPlan] = useState(false); // ✅ State to switch page
+  const [showSelectPlan, setShowSelectPlan] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -36,11 +36,10 @@ const Personal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      setShowSelectPlan(true); // ✅ Move to SelectPlan
+      setShowSelectPlan(true);
     }
   };
 
-  // ✅ If they passed validation, show SelectPlan instead
   if (showSelectPlan) {
     return <SelectPlan />;
   }

@@ -33,7 +33,6 @@
   box-sizing: border-box;
 }
 
-/* Plan Section */
 .plan-section {
   display: flex;
   justify-content: space-between;
@@ -73,7 +72,6 @@
   display: flex;
 }
 
-/* Add-ons */
 .addon-item {
   display: flex;
   justify-content: space-between;
@@ -89,7 +87,6 @@
   margin: 15px 0;
 }
 
-/* Total Section */
 .summarytotal {
   font-size: 16px;
   color: grey;
@@ -104,7 +101,6 @@
   color: #022959;
 }
 
-/* Footer Buttons */
 .s-footer {
   display: flex;
   align-items: center;
@@ -139,7 +135,6 @@
   background: #034080;
 }
 
-/* Check Image and Text */
 .check {
   display: block;
   margin: 30px auto 0;
@@ -177,7 +172,7 @@
   }
 
   .summary1 {
-    margin-left: 0; /* remove negative margin on mobile */
+    margin-left: 0;
     margin-top: 30px;
     text-align: center;
     font-size: 30px;

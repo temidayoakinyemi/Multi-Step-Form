@@ -67,7 +67,6 @@ input::placeholder {
   margin-top: 4px;
 }
 
-/* Tablet view */
 @media (max-width: 1024px) {
   input {
     width: 100%;
@@ -80,7 +79,6 @@ input::placeholder {
   }
 }
 
-/* Mobile view */
 @media (max-width: 768px) {
   .personal {
     background-color: #FFFFFF;
