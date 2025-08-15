@@ -1,0 +1,124 @@
+
+.form-navbar {
+  width: 274px;
+  height: 568px;
+  border-radius: 10px;
+  background-color: #483eff;
+  padding: 20px;
+}
+
+.navbar1 {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.navbar1.active {
+  background-color: skyblue;
+  color: #022959;
+  border: none;
+  transform: scale(1.05);
+}
+
+.navbar1:hover:not(.active) {
+  background-color: skyblue;
+  border: none;
+  color: #022959;
+  transform: scale(1.05);
+}
+
+.navbar1p2 {
+  font-size: 16px;
+  color: lightblue;
+  transition: all 0.3s ease;
+}
+
+.navbar1p3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.navbar1pp1 {
+  display: block;
+  margin-left: 10px;
+}
+
+.navbarppdiv {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.navbarspan {
+  text-align: center;
+  margin-top: 3px;
+}
+
+.all {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .form-navbar {
+    width: 220px;
+    height: auto;
+    padding: 15px;
+  }
+
+  .navbar1p2 {
+    font-size: 15px;
+  }
+
+  .navbar1p3 {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .form {
+    padding: 0;
+    width: 100%;
+  }
+  .form-navbar {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #483eff;
+  }
+
+  .all {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbarppdiv {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .navbar1pp1 {
+    display: none;
+  }
+}

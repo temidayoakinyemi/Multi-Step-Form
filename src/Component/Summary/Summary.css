@@ -1,0 +1,211 @@
+.summary {
+  width: 100%;
+  margin-top: 30px;
+  font-family: sans-serif;
+}
+
+.summary1 {
+  width: 100%;
+  margin-top: 50px;
+}
+
+
+.summary-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #022959;
+  font-size: 28px;
+}
+
+.summaryp {
+  color: grey;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.summarydiv {
+  width: 100%;
+  max-width: 450px;
+  background-color: #f0f3ff;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Plan Section */
+.plan-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.plan-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #022959;
+  margin-bottom: 5px;
+}
+
+.change {
+  font-size: 14px;
+  color: #64748b;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.plan-price {
+  font-weight: 600;
+  color: #022959;
+  margin-top: 10px;
+  margin-left: 240px;
+}
+
+.plan-price-summarytotal {
+  display: flex;
+}
+
+/* Add-ons */
+.addon-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  font-size: 16px;
+  color: grey;
+}
+
+.summary-line {
+  width: 100%;
+  height: 1px;
+  background-color: #d1d5db;
+  margin: 15px 0;
+}
+
+/* Total Section */
+.summarytotal {
+  font-size: 16px;
+  color: grey;
+  font-weight: 600;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-price {
+  font-weight: 700;
+  color: #022959;
+}
+
+/* Footer Buttons */
+.s-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.s-back {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.s-next {
+  width: 123px;
+  height: 48px;
+  background: #022959;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  margin-left: 250px;
+}
+.s-next:hover {
+  background: #034080;
+}
+
+/* Check Image and Text */
+.check {
+  display: block;
+  margin: 30px auto 0;
+  max-width: 80px;
+}
+
+.checkh1 {
+  text-align: center;
+  color: #022959;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.checkp {
+  text-align: center;
+  color: grey;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+
+@media screen and (max-width: 500px) {
+  .summary {
+  
+     background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    
+  }
+
+  .summary1 {
+    margin-left: 0; /* remove negative margin on mobile */
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+     background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  .summary-title,
+  .summaryp {
+    text-align: center;
+  }
+
+  .plan-price {
+    margin-left: auto;
+  }
+
+  .plan-price-summarytotal {
+    gap: 40px;
+  }
+
+  .s-footer {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .s-next {
+    margin-left: 0; 
+  }
+}

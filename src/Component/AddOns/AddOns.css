@@ -1,0 +1,170 @@
+.addons {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.ao-title {
+  color: #022959;
+  font-weight: 800;
+}
+.ao-sub {
+  color: grey;
+  margin-top: 8px;
+}
+
+.ao-list {
+  width: 450px;
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ao-item {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ao-item:hover {
+  border-color: #483eff;
+  background: #f8f9ff;
+}
+.ao-item.checked {
+  border-color: #483eff;
+  background: #f0f3ff;
+  box-shadow: 0 0 0 3px rgba(72, 62, 255, 0.12) inset;
+}
+
+.ao-item input {
+  display: none;
+}
+
+.ao-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  transition: all 0.2s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ao-item.checked .ao-checkbox {
+  background: #483eff;
+  border-color: #483eff;
+}
+
+.ao-item.checked .ao-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  top: 2px;
+  left: 6px;
+}
+
+.ao-text {
+  display: flex;
+  flex-direction: column;
+}
+.ao-title-sm {
+  color: #022959;
+  font-weight: 700;
+}
+.ao-desc {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.ao-price {
+  color: #483eff;
+  font-weight: 600;
+}
+
+.ao-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+  margin-top: 24px;
+}
+.ao-back {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+.ao-next {
+  width: 123px;
+  height: 48px;
+  background: #022959;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.ao-next:hover {
+  background: #034080;
+}
+
+@media (max-width: 768px) {
+  .addons {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .ao-list {
+    width: 100%;
+  }
+
+  .ao-item {
+    grid-template-columns: 24px 1fr auto;
+    width: 100%;
+    padding: 12px 14px;
+  }
+
+  .ao-text {
+    justify-content: center;
+  }
+
+  .ao-title-sm {
+    font-size: 16px;
+  }
+
+  .ao-desc {
+    font-size: 13px;
+  }
+
+  .ao-price {
+    font-size: 14px;
+  }
+
+  .ao-footer {
+    width: 100%;
+  }
+
+  .ao-next {
+    width: auto;
+    padding: 0 20px;
+  }
+}

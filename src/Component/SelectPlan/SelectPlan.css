@@ -1,0 +1,222 @@
+.selectplan {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.sp-title {
+  color: #022959;
+  font-weight: 800;
+}
+.sp-sub {
+  color: grey;
+  margin-top: 8px;
+}
+
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 138px);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.sp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 138px;
+  height: 160px;
+}
+
+.sp-card:hover {
+  border-color: #483eff;
+  background: #f8f9ff;
+}
+
+.sp-card.active {
+  border-color: #483eff;
+  background: #f0f3ff;
+  box-shadow: 0 0 0 3px rgba(72, 62, 255, 0.12) inset;
+}
+
+.sp-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.sp-plan-name {
+  color: #022959;
+  font-weight: 700;
+  margin-top: 40px;
+  text-align: left;
+}
+.sp-price {
+  color: #64748b;
+  margin-top: 4px;
+  font-size: 14px;
+  text-align: left;
+}
+.sp-free {
+  color: #022959;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.sp-toggle-container {
+  width: 450px;
+  height: 48px;
+  background: #d6d9e6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  opacity: 100%;
+}
+
+.sp-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sp-cycle {
+  color: #64748b;
+  font-weight: 600;
+}
+.sp-cycle.on {
+  color: #022959;
+}
+
+.sp-switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.sp-switch input {
+  display: none;
+}
+.sp-slider {
+  position: absolute;
+  inset: 0;
+  background: #022959;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+.sp-slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+.sp-switch input:checked + .sp-slider::before {
+  transform: translateX(24px);
+}
+
+.sp-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.sp-back {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sp-next {
+  width: 123px;
+  height: 48px;
+  background: #022959;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  margin-left: 270px;
+}
+.sp-next:hover {
+  background: #034080;
+}
+
+@media (max-width: 768px) {
+  .selectplan {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+  .sp-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sp-card {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .sp-icon-circle {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+  }
+
+  .sp-plan-name {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .sp-price {
+    font-size: 14px;
+  }
+
+  .sp-free {
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  .sp-toggle-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .sp-footer {
+    justify-content: space-between;
+  }
+
+  .sp-next {
+    margin-left: 0;
+  }
+}

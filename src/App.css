@@ -1,0 +1,61 @@
+.page-wrapper {
+  background-color: #FFFFFF; /* desktop background color */
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 40px auto; /* center on desktop */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.app-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.app-sidebar {
+  min-width: 250px;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .app-container {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .app-sidebar {
+    min-width: 220px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .app-sidebar {
+    min-width: 100%;
+  }
+
+  .app-content {
+    margin-left: 0;
+  }
+}
