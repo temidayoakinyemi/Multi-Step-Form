@@ -1,6 +1,7 @@
 .addons {
   width: 100%;
-  margin-top: 30px;
+   margin-top: 40px;
+  margin-left: 50px;
 }
 
 .ao-title {
@@ -130,7 +131,10 @@
     background-color: #FFFFFF;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 20px;
+   border-radius: 10px;
+    width: 343px;
+    margin-top: 0px;
+    margin-left: 12px;
   }
 
   .ao-list {

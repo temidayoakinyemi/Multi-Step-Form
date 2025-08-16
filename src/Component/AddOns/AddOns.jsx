@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./AddOns.css";
-import SelectPlan from "../SelectPlan/SelectPlan";
-import Summary from "../Summary/Summary";
 
-const AddOns = ({ billing = "monthly", selectedPlan }) => {
-  const [selected, setSelected] = useState(new Set());
+const AddOns = ({
+  billing,
+  selectedAddOns,
+  setSelectedAddOns,
+  setCurrentPage,
+}) => {
   const [error, setError] = useState("");
-  const [showSelectPlan, setShowSelectPlan] = useState(false);
-  const [showSummary, setShowSummary] = useState(false);
 
   const addOns = [
     {
@@ -31,41 +31,29 @@ const AddOns = ({ billing = "monthly", selectedPlan }) => {
   ];
 
   const toggle = (id) => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
+    const isSelected = selectedAddOns.some((a) => a.id === id);
+    if (isSelected) {
+      setSelectedAddOns(selectedAddOns.filter((a) => a.id !== id));
+    } else {
+      const addOn = addOns.find((a) => a.id === id);
+      setSelectedAddOns([...selectedAddOns, addOn]);
+    }
   };
 
   const handleNext = () => {
-    if (selected.size === 0) {
+    if (selectedAddOns.length === 0) {
       setError("Choose at least one");
     } else {
       setError("");
-      setShowSummary(true);
+      setCurrentPage("summary");
     }
   };
 
   const handleBack = () => {
-    setShowSelectPlan(true);
+    setCurrentPage("plan");
   };
 
   const suffix = billing === "monthly" ? "/mo" : "/yr";
-
-  if (showSelectPlan) return <SelectPlan />;
-  if (showSummary)
-    return (
-      <Summary
-        billing={billing}
-        selectedPlan={selectedPlan}
-        selectedAddOns={Array.from(selected).map((id) =>
-          addOns.find((a) => a.id === id)
-        )}
-        goBackToAddOns={() => setShowSummary(false)}
-        goBackToSelectPlan={() => setShowSelectPlan(false)}
-      />
-    );
 
   return (
     <div className="addons">
@@ -76,11 +64,13 @@ const AddOns = ({ billing = "monthly", selectedPlan }) => {
         {addOns.map((a) => (
           <label
             key={a.id}
-            className={`ao-item ${selected.has(a.id) ? "checked" : ""}`}
+            className={`ao-item ${
+              selectedAddOns.some((sel) => sel.id === a.id) ? "checked" : ""
+            }`}
           >
             <input
               type="checkbox"
-              checked={selected.has(a.id)}
+              checked={selectedAddOns.some((sel) => sel.id === a.id)}
               onChange={() => toggle(a.id)}
             />
             <span className="ao-checkbox" />

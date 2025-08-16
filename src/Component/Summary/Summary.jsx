@@ -26,9 +26,9 @@ const Summary = ({
         <img src={Check} alt="" className="check" />
         <h1 className="checkh1">Thank you!</h1>
         <p className="checkp">
-          Thanks for confirming your subscription! We hope you have <br /> fun using
-          our platform. If you ever need support, please feel <br /> free to email us
-          at support@loremgaming.com.
+          Thanks for confirming your subscription! We hope you have <br /> fun
+          using our platform. If you ever need support, please feel <br /> free
+          to email us at support@loremgaming.com.
         </p>
       </div>
     );
@@ -49,7 +49,14 @@ const Summary = ({
                 billing === "monthly" ? "Monthly" : "Yearly"
               })`}
             </h2>
-            <a className="change" onClick={goBackToSelectPlan} href="">
+            <a
+              className="change"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                goBackToSelectPlan();
+              }}
+            >
               Change
             </a>
           </div>

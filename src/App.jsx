@@ -8,17 +8,43 @@ import "./App.css";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("personal");
+  const [billing, setBilling] = useState("monthly");
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [selectedAddOns, setSelectedAddOns] = useState([]);
 
   const renderPage = () => {
     switch (currentPage) {
       case "personal":
         return <Personal setCurrentPage={setCurrentPage} />;
       case "plan":
-        return <SelectPlan setCurrentPage={setCurrentPage} />;
+        return (
+          <SelectPlan
+            setCurrentPage={setCurrentPage}
+            billing={billing}
+            setBilling={setBilling}
+            setSelectedPlan={setSelectedPlan}
+          />
+        );
       case "addons":
-        return <AddOns setCurrentPage={setCurrentPage} />;
+        return (
+          <AddOns
+            billing={billing}
+            setCurrentPage={setCurrentPage}
+            selectedAddOns={selectedAddOns}
+            setSelectedAddOns={setSelectedAddOns}
+          />
+        );
       case "summary":
-        return <Summary setCurrentPage={setCurrentPage} />;
+        return (
+          <Summary
+            billing={billing}
+            selectedPlan={selectedPlan}
+            selectedAddOns={selectedAddOns}
+            goBackToAddOns={() => setCurrentPage("addons")}
+            goBackToSelectPlan={() => setCurrentPage("plan")}
+          />
+        );
+
       default:
         return <Personal setCurrentPage={setCurrentPage} />;
     }

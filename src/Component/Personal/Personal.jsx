@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Personal.css";
-import SelectPlan from "../SelectPlan/SelectPlan"; 
 
-const Personal = () => {
+const Personal = ({ setCurrentPage }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +9,7 @@ const Personal = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [showSelectPlan, setShowSelectPlan] = useState(false);
+  const [touched, setTouched] = useState({});
 
   const handleChange = (e) => {
     setFormData({
@@ -19,15 +18,19 @@ const Personal = () => {
     });
   };
 
+  const handleBlur = (e) => {
+    setTouched({ ...touched, [e.target.id]: true });
+  };
+
   const validate = () => {
     let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = "This field is required";
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = "This field is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Enter a valid email";
     }
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.phone.trim()) newErrors.phone = "This field is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -36,13 +39,9 @@ const Personal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      setShowSelectPlan(true);
+      setCurrentPage("plan");
     }
   };
-
-  if (showSelectPlan) {
-    return <SelectPlan />;
-  }
 
   return (
     <div className="personal">
@@ -52,45 +51,52 @@ const Personal = () => {
       </p>
 
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
+        <div className={`form-group ${errors.name ? "error-state" : ""}`}>
+          <div className="label-row">
+            <label htmlFor="name">Name</label>
+            {errors.name && <span className="error-msg">{errors.name}</span>}
+          </div>
           <input
             type="text"
             id="name"
             value={formData.name}
             onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="e.g. Stephen King"
           />
-          {errors.name && <p className="error">{errors.name}</p>}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+        <div className={`form-group ${errors.email ? "error-state" : ""}`}>
+          <div className="label-row">
+            <label htmlFor="email">Email Address</label>
+            {errors.email && <span className="error-msg">{errors.email}</span>}
+          </div>
           <input
             type="email"
             id="email"
             value={formData.email}
             onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="e.g. stephenking@lorem.com"
           />
-          {errors.email && <p className="error">{errors.email}</p>}
         </div>
 
-        <div className="form-row">
-          <div className="form-group phone-group">
+        <div className={`form-group ${errors.phone ? "error-state" : ""}`}>
+          <div className="label-row">
             <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="e.g. +1 234 567 890"
-            />
-            {errors.phone && <p className="error">{errors.phone}</p>}
+            {errors.phone && <span className="error-msg">{errors.phone}</span>}
           </div>
+          <input
+            type="tel"
+            id="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="e.g. +1 234 567 890"
+          />
         </div>
 
-        <button type="submit" className="next-step-btn" >
+        <button type="submit" className="next-step-btn">
           Next Step
         </button>
       </form>

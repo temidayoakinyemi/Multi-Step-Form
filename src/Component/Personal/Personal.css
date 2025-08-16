@@ -1,6 +1,7 @@
 .personal {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
+  margin-left: 50px;
 }
 
 .personalh1 {
@@ -15,18 +16,30 @@
 
 .form-group {
   margin-top: 20px;
+  max-width: 450px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 label {
-  display: block;
   font-size: 16px;
   font-weight: 500;
   color: #022959;
-  margin-bottom: 8px;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: red;
+  font-weight: 500;
 }
 
 input {
-  width: 450px;
+  width: 100%;
   height: 48px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -34,6 +47,15 @@ input {
   font-size: 16px;
   font-weight: 500;
   outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #483EFF;
+}
+
+.error-state input {
+  border-color: red;
 }
 
 input::placeholder {
@@ -61,15 +83,8 @@ input::placeholder {
   background-color: #034080;
 }
 
-.error {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: 4px;
-}
-
 @media (max-width: 1024px) {
-  input {
-    width: 100%;
+  .form-group {
     max-width: 400px;
   }
 
@@ -81,22 +96,30 @@ input::placeholder {
 
 @media (max-width: 768px) {
   .personal {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    border-radius: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 343px;
+    margin-left: 12px;
   }
-  
+
+  .form-group {
+    max-width: 100%;
+  }
+
   input {
     width: 100%;
-    max-width: 100%;
-    font-size: 14px;
-    height: 44px;
+    font-size: 15px;
+    height: 48px;
   }
 
   .next-step-btn {
     width: 100%;
     margin-left: 0;
     margin-top: 30px;
+    height: 50px;
+    font-size: 16px;
   }
 }

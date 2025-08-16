@@ -3,16 +3,15 @@ import "./SelectPlan.css";
 import arcade from "../../assets/arcade.png";
 import advance from "../../assets/advance.png";
 import pro from "../../assets/pro.png";
-import AddOns from "../AddOns/AddOns";
-import Personal from "../Personal/Personal";
 
-const SelectPlan = () => {
-  const [billing, setBilling] = useState("monthly");
+const SelectPlan = ({
+  setCurrentPage,
+  billing,
+  setBilling,
+  setSelectedPlan,
+}) => {
   const [active, setActive] = useState(null);
   const [error, setError] = useState("");
-  const [showAddOns, setShowAddOns] = useState(false);
-  const [showPersonal, setShowPersonal] = useState(false);
-  const [selectedPlanDetails, setSelectedPlanDetails] = useState(null);
 
   const plans = [
     { name: "Arcade", monthly: 9, yearly: 90, icon: arcade, color: "orange" },
@@ -32,22 +31,18 @@ const SelectPlan = () => {
     } else {
       setError("");
       const plan = plans[active];
-      setSelectedPlanDetails({
+      setSelectedPlan({
         name: plan.name,
         type: billing,
         price: billing === "monthly" ? plan.monthly : plan.yearly,
       });
-      setShowAddOns(true);
+      setCurrentPage("addons");
     }
   };
 
   const handleBack = () => {
-    setShowPersonal(true);
+    setCurrentPage("personal");
   };
-
-  if (showAddOns)
-    return <AddOns billing={billing} selectedPlan={selectedPlanDetails} />;
-  if (showPersonal) return <Personal />;
 
   return (
     <div className="selectplan">

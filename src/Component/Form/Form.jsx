@@ -1,7 +1,7 @@
 import React from "react";
 import "./Form.css";
 
-const Form = ({ currentPage }) => {
+const Form = ({ currentPage, setCurrentPage }) => {
   const steps = [
     { page: "personal", number: 1, title: "YOUR INFO" },
     { page: "plan", number: 2, title: "SELECT PLAN" },
@@ -19,11 +19,12 @@ const Form = ({ currentPage }) => {
                 className={`navbar1 ${
                   currentPage === step.page ? "active" : ""
                 }`}
+                onClick={() => setCurrentPage(step.page)}
               >
                 <p className="navbarspan">{step.number}</p>
               </div>
               <div className="navbar1pp1">
-                <p className="navbar1p2">{`Step ${step.number}`}</p>
+                <p className="navbar1p2">{`STEP ${step.number}`}</p>
                 <p className="navbar1p3">{step.title}</p>
               </div>
             </div>

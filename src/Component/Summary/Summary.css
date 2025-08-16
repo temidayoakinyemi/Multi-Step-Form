@@ -1,14 +1,13 @@
 .summary {
   width: 100%;
-  margin-top: 30px;
-  font-family: sans-serif;
+  margin-top: 40px;
+  margin-left: 50px;
 }
 
 .summary1 {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 120px;
 }
-
 
 .summary-title {
   font-weight: bold;
@@ -160,15 +159,15 @@
   white-space: nowrap;
 }
 
-
 @media screen and (max-width: 500px) {
   .summary {
-  
-     background-color: #ffffff;
+    background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 20px;
-    
+    border-radius: 10px;
+    width: 343px;
+    margin-top: 0px;
+    margin-left: 12px;
   }
 
   .summary1 {
@@ -176,10 +175,13 @@
     margin-top: 30px;
     text-align: center;
     font-size: 30px;
-     background-color: #ffffff;
+    background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 10px;
+   border-radius: 10px;
+    width: 343px;
+    margin-top: 0px;
+    margin-left: 12px;
   }
 
   .summary-title,
@@ -201,6 +203,6 @@
   }
 
   .s-next {
-    margin-left: 0; 
+    margin-left: 0;
   }
 }
